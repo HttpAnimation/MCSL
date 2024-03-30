@@ -9,11 +9,18 @@ def read_config(config_file):
 
 def launch_server(server_name, config_path):
     config = read_config(config_path)
+    if server_name not in config[0]:
+        print(f"Server '{server_name}' not found in config file.")
+        return
+
+    server_config_path = config[0][server_name]
+    server_config = read_config(server_config_path)
+    
     print(f"Launching {server_name} server...")
-    print(f"Description: {config[0]['Description']}")
-    print(f"Version: {config[0]['Version']}")
+    print(f"Description: {server_config[0]['Description']}")
+    print(f"Version: {server_config[0]['Version']}")
     print("Starting server...")
-    subprocess.run(config[0]['LaunchCommand'], shell=True)
+    subprocess.run(server_config[0]['LaunchCommand'], shell=True)
 
 def main():
     parser = argparse.ArgumentParser(description="Minecraft Server Launcher")
@@ -21,11 +28,7 @@ def main():
     args = parser.parse_args()
 
     config = read_config("config.json")
-    if args.server_name not in config[0]:
-        print("Server not found in config file.")
-        return
-
-    launch_server(args.server_name, config[0][args.server_name])
+    launch_server(args.server_name, config)
 
 if __name__ == "__main__":
     main()
