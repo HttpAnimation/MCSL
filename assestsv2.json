@@ -1,5 +1,15 @@
 [
-    "macos"{
-        
+    {
+        "Repo-Name": "HttpAnimations ISOS repo",
+        "Movies": {
+            "Torrent name": {
+                "Name": "Torrent name",
+                ".Torrent": ".torrent",
+                "MagnetUrl": "manget",
+                "Icon": "photo.png",
+                "HasStreamURL": false,
+                "StreamURL": "stream.mp4"
+            }
+        }
     }
 ]
