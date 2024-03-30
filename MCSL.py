@@ -34,8 +34,12 @@ def main():
 
     config_file = 'config.json'
     server_name = sys.argv[1]
-    
+
     config = load_config(config_file)
+    if isinstance(config, list):
+        # If the config is a list, assume it contains dictionaries and use the first element
+        config = config[0]
+
     launch_server(server_name, config)
 
 if __name__ == "__main__":
