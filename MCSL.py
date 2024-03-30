@@ -26,6 +26,7 @@ def launch_server(server_name, config):
 def main():
     if len(sys.argv) != 2:
         print("Usage: python3 MCSL.py <server_name>")
+        print("Usage: python MCSL.py <server_name>")
         return
 
     server_name = sys.argv[1]
