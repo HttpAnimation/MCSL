@@ -1,3 +1,3 @@
 #!/bin/bash
-curl -o 
+curl -o https://raw.githubusercontent.com/HttpAnimation/MCSL/main/MCSL.py
 curl -o 
