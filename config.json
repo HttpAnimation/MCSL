@@ -1,5 +1,6 @@
 [
     {
-        "EXPServer": "ServerConfigPathHere.json"
+        "EXPServer": "ServerConfigPathHere.json",
+        "HttpAnimationsServer": "HttpAnimationsServer.json"
     }
 ]
