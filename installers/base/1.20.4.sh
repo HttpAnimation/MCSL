@@ -3,7 +3,7 @@
 # Variables
 minecraft_version="1.20.4"
 download_url="https://piston-data.mojang.com/v1/objects/8dd1a28015f51b1803213892b50b7b4fc76e594d/server.jar"
-config=""
+config="https://raw.githubusercontent.com/HttpAnimation/MCSL/main/installers/base/config.conf"
 downloaded_file="baseServer${minecraft_version}.jar"
 target_directory="Base${minecraft_version}"
 
