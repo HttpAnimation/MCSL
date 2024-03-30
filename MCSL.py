@@ -13,11 +13,14 @@ def launch_server(server_name, config):
         return
 
     launch_command = config.get(server_name, 'LaunchCommand')
+    version = config.get(server_name, 'Version')
+    description = config.get(server_name, 'Description')
     
     if not launch_command:
         print(f"No launch command found for server '{server_name}' in config.")
         return
 
+    print(f"Launching {server_name} ({description}) - Version {version}")
     os.system(launch_command)
 
 def main():
