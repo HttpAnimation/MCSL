@@ -1,34 +1,59 @@
 import json
-import os
 import subprocess
-import argparse
+import os
+import sys
 
-def read_config(config_file):
-    with open(config_file, 'r') as file:
-        return json.load(file)
+class MinecraftServerLauncher:
+    def __init__(self, config_file):
+        self.config_file = config_file
+        self.servers = {}
 
-def launch_server(server_name, config_path):
-    config = read_config(config_path)
-    if server_name not in config[0]:
-        print(f"Server '{server_name}' not found in config file.")
-        return
+    def load_config(self):
+        with open(self.config_file, 'r') as f:
+            config_data = json.load(f)
+            for server_name, server_config_path in config_data.items():
+                with open(server_config_path, 'r') as server_config_file:
+                    server_config = json.load(server_config_file)
+                    self.servers[server_name] = server_config
 
-    server_config_path = config[0][server_name]
-    server_config = read_config(server_config_path)
-    
-    print(f"Launching {server_name} server...")
-    print(f"Description: {server_config[0]['Description']}")
-    print(f"Version: {server_config[0]['Version']}")
-    print("Starting server...")
-    subprocess.run(server_config[0]['LaunchCommand'], shell=True)
+    def list_servers(self):
+        print("Available Servers:")
+        for server_name in self.servers.keys():
+            print(f"- {server_name}")
 
-def main():
-    parser = argparse.ArgumentParser(description="Minecraft Server Launcher")
-    parser.add_argument("server_name", type=str, help="Name of the server to launch")
-    args = parser.parse_args()
+    def launch_server(self, server_name):
+        if server_name not in self.servers:
+            print(f"Server '{server_name}' not found in the configuration.")
+            return
+        
+        server_config = self.servers[server_name]
+        launch_command = server_config.get('LaunchCommand')
+        if not launch_command:
+            print(f"No launch command specified for server '{server_name}'.")
+            return
 
-    config = read_config("config.json")
-    launch_server(args.server_name, config)
+        print(f"Launching server '{server_name}'...")
+        subprocess.call(launch_command, shell=True)
 
 if __name__ == "__main__":
-    main()
+    if len(sys.argv) != 2:
+        print("Usage: python MCSL.py <config_file>")
+        sys.exit(1)
+
+    config_file = sys.argv[1]
+
+    if not os.path.isfile(config_file):
+        print(f"Config file '{config_file}' not found.")
+        sys.exit(1)
+
+    mcsl = MinecraftServerLauncher(config_file)
+    mcsl.load_config()
+
+    while True:
+        mcsl.list_servers()
+        server_name = input("Enter the name of the server to launch (or 'exit' to quit): ").strip()
+        
+        if server_name.lower() == 'exit':
+            break
+        
+        mcsl.launch_server(server_name)
