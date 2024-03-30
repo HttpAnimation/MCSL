@@ -1,5 +1,5 @@
 [
     {
-        "ServerNameHere": "ServerConfigPathHere.json"
+        "EXPServer": "ServerConfigPathHere.json"
     }
 ]
