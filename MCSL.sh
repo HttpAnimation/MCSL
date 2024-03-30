@@ -1,5 +1,5 @@
 #!/bin/bash
-
+echo "Use the python3 script for better usage"
 # Function to read JSON file and extract value by key
 read_json_value() {
     local json=$1
