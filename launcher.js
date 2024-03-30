@@ -1,4 +1,6 @@
 const fs = require('fs-extra');
+const util = require('util');
+const exec = util.promisify(require('child_process').exec);
 
 async function readConfig(configPath) {
     try {
@@ -15,8 +17,15 @@ async function launchServer(serverConfig) {
     console.log(`Version: ${serverConfig.Version}`);
     console.log(`Launch Command: ${serverConfig.LaunchCommand}`);
 
-    // Execute the launch command
-    // Add your code here to actually launch the server
+    try {
+        const { stdout, stderr } = await exec(serverConfig.LaunchCommand);
+        console.log('Server launched successfully:');
+        console.log(stdout);
+        console.error(stderr);
+    } catch (error) {
+        console.error('Error launching server:');
+        console.error(error.stderr);
+    }
 }
 
 async function main() {
