@@ -1,5 +1,6 @@
 [
     {
-        "fs-extra": "npm install fs-extra"
+        "fs-extra": "npm install fs-extra",
+        "express": "npm install express"
     }
 ]
