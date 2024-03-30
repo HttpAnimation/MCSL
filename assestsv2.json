@@ -7,7 +7,7 @@
 
     {
         "Linux": {
-
+            "jq/fedora": "sudo dnf install jq"
         }
     }
 ]
