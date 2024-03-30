@@ -11,6 +11,7 @@ target_directory="Base${minecraft_version}"
 echo "Downloading Minecraft ${minecraft_version}..."
 curl -o "$downloaded_file" "$download_url"
 echo "Downloading the config file ${minecraft_version}..."
+curl -o "$config"
 echo "Done downloading"
 
 # Rename the downloaded files
