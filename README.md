@@ -26,7 +26,7 @@ To install MCSL, follow these steps:
 4. Download the installer script.
 
     ```bash
-    wget https://github.com/HttpAnimation/MCSL/raw/main/install.bash
+    curl -o install.bash https://github.com/HttpAnimation/MCSL/raw/main/install.bash
     ```
 
 5. Allow the script to execute commands.
