@@ -2,12 +2,7 @@
     {
         "Movies": {
             "Torrent name": {
-                "Name": "Torrent name",
-                ".Torrent": ".torrent",
-                "MagnetUrl": "manget",
-                "Icon": "photo.png",
-                "HasStreamURL": false,
-                "StreamURL": "stream.mp4"
+
             }
         }
     }
