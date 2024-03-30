@@ -13,6 +13,7 @@ echo "None right now"
 ```
 
 ## Config
+not here yet
 
 ## Error codes
 If you get a error code here are the erors
