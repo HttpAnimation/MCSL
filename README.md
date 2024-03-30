@@ -15,3 +15,4 @@ To install open a terminal and run the following commmand
 ## Config
 
 ## Credits
+[FYC](https://github.com/HttpAnimation/FYC-Rewrite-V2/) for json styling.
