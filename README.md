@@ -12,10 +12,39 @@ MCSL is a simple yet powerful Minecraft server launcher designed to streamline t
 ## Installation
 To install MCSL, follow these steps:
 1. Open a terminal.
-2. Run the following command:
+2. Make a new dir.
 
     ```bash
-    echo "None right now"
+    mkdir ~/MCSL
+    ```
+3. Enter the dir.
+
+    ```bash
+    cd ~/MCSL
+    ```
+
+4. Download the installer script.
+
+    ```bash
+    wget https://github.com/HttpAnimation/MCSL/raw/main/install.bash
+    ```
+
+5. Allow the script to execute commands.
+
+    ```bash
+    chmod +x install.bash
+    ```
+
+6. Run the installer.
+
+    ```bash
+    ./install.bash
+    ```
+
+7. Remove the installer.
+
+    ```bash
+    rm install.bash
     ```
 
 ## Configuration
