@@ -34,6 +34,7 @@ def main():
 
     if not os.path.exists(config_file):
         print("Config file 'config.conf' not found.")
+        print("Error 404")
         return
 
     config = load_config(config_file)
