@@ -13,11 +13,6 @@ echo "Downloading Minecraft ${minecraft_version}..."
 curl -o "$downloaded_file" "$download_url"
 echo "Done downloading"
 
-# Download config file
-echo "Downloading the config file ${minecraft_version}..."
-curl -o "$config_file" "$config_url"
-echo "Done downloading"
-
 # Rename the downloaded server
 echo "Renaming the downloaded server..."
 mv "$downloaded_file" "${target_directory}/baseServer${minecraft_version}.jar"
@@ -28,10 +23,10 @@ echo "Creating new directory..."
 mkdir "$target_directory"
 echo "Done creating directory"
 
-# Move files to new directory
-echo "Moving files to new directory..."
+# Download and move config file to new directory
+echo "Downloading and moving the config file..."
+curl -o "$config_file" "$config_url"
 mv "$config_file" "$target_directory/$config_file"
-
 echo "Done moving"
 
 echo "Done :3"
