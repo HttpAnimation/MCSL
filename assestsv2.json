@@ -3,5 +3,11 @@
         "macOS": {
             "jq": "brew install jq"
         }
+    },
+
+    {
+        "Linux": {
+
+        }
     }
 ]
