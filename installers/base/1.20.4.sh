@@ -14,8 +14,8 @@ echo "Downloading the config file ${minecraft_version}..."
 curl -o "$config"
 echo "Done downloading"
 
-# Rename the downloaded files
-echo "Renaming the downloaded files..."
+# Rename the downloaded server
+echo "Renaming the downloaded server..."
 mv "$downloaded_file" "${target_directory}.jar"
 echo "Done renaming"
 
