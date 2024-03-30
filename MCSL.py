@@ -1,19 +1,18 @@
-import json
+import configparser
 import sys
 import os
 
 def load_config(config_file):
-    with open(config_file, 'r') as f:
-        config = json.load(f)
+    config = configparser.ConfigParser()
+    config.read(config_file)
     return config
 
 def launch_server(server_name, config):
-    if server_name not in config:
+    if not config.has_section(server_name):
         print(f"Server '{server_name}' not found in config.")
         return
 
-    server_data = config[server_name]
-    launch_command = server_data.get('LaunchCommand')
+    launch_command = config.get(server_name, 'LaunchCommand')
     
     if not launch_command:
         print(f"No launch command found for server '{server_name}' in config.")
@@ -27,10 +26,10 @@ def main():
         return
 
     server_name = sys.argv[1]
-    config_file = 'config.json'
+    config_file = 'config.conf'
 
     if not os.path.exists(config_file):
-        print("Config file 'config.json' not found.")
+        print("Config file 'config.conf' not found.")
         return
 
     config = load_config(config_file)
