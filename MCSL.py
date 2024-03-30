@@ -13,9 +13,15 @@ def load_config(config_file):
         print(f"Error: Invalid JSON format in config file '{config_file}'.")
         sys.exit(1)
 
+def find_server_config(server_name, configs):
+    for config in configs:
+        if server_name in config:
+            return config[server_name]
+    return None
+
 def launch_server(server_name, config):
-    if server_name in config:
-        server_config_path = config[server_name]
+    if config is not None:
+        server_config_path = config
         server_config = load_config(server_config_path)
         launch_command = server_config.get('LaunchCommand')
         if launch_command:
@@ -36,11 +42,8 @@ def main():
     server_name = sys.argv[1]
 
     config = load_config(config_file)
-    if isinstance(config, list):
-        # If the config is a list, assume it contains dictionaries and use the first element
-        config = config[0]
-
-    launch_server(server_name, config)
+    server_config_path = find_server_config(server_name, config)
+    launch_server(server_name, server_config_path)
 
 if __name__ == "__main__":
     main()
