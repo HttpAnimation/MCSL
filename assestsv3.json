@@ -1,5 +1,8 @@
 [
     {
-        
+        "json": "pip install json",
+        "os": "pip install os",
+        "subprocess": "pip install subprocess",
+        "argparse": "pip install argparse"
     }
 ]
