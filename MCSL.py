@@ -1,6 +1,7 @@
 import configparser
 import sys
 import os
+import socket
 
 ERROR_SERVER_NOT_FOUND = 1
 ERROR_NO_LAUNCH_COMMAND = 2
@@ -25,7 +26,14 @@ def launch_server(server_name, config):
         return
 
     print(f"Launching {server_name} ({description}) - Version {version}")
-    os.system(launch_command)
+
+    # Retrieve IP address of the PC
+    ip_address = socket.gethostbyname(socket.gethostname())
+
+    # Modify launch command to use IP address or localhost
+    modified_launch_command = launch_command.replace("{ip_address}", ip_address)
+
+    os.system(modified_launch_command)
 
 def main():
     if len(sys.argv) != 2:
