@@ -30,7 +30,7 @@ def launch_server(server_name, config):
     # Retrieve IP address of the PC
     ip_address = socket.gethostbyname(socket.gethostname())
 
-    # Modify launch command to use IP address or localhost
+    # Modify launch command to use IP address
     modified_launch_command = launch_command.replace("{ip_address}", ip_address)
 
     os.system(modified_launch_command)
