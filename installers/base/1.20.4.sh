@@ -25,6 +25,7 @@ echo "Done creating directory"
 # Move files to new directory
 echo "Moving fils to new directory..."
 mv "${target_directory}.jar" "$target_directory/baseServer${minecraft_version}.jar"
+mv ""
 echo "Done moving"
 
 echo "Done :3"
