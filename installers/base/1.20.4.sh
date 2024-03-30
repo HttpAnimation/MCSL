@@ -30,3 +30,4 @@ mv "$config_file" "$target_directory/$config_file"
 echo "Done moving"
 
 echo "Done :3"
+echo "Make sure to edit your config.conf file with your new one"
