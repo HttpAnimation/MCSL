@@ -48,7 +48,64 @@ To install MCSL, follow these steps:
     ```
 
 ## Configuration
-The configuration feature is currently under development. Stay tuned for updates on how to tailor your server settings to your preferences.
+The config file called **config.conf** open up the file with a text edit for this guide let's use nano.
+
+```bash
+$/ nano config.conf
+```
+
+Once in the file add the following to the file.
+
+```bash
+[Name]
+LaunchCommand = 
+Version = 
+Description = 
+```
+
+Where it says name replace that with the name of your server **eg. MyServer**
+
+```bash
+[MyServer]
+LaunchCommand = 
+Version = 
+Description = 
+```
+
+For the version enter the version of your minecraft server **eg. 1.12.2**
+
+```bash
+[MyServer]
+LaunchCommand = 
+Version = 1.12.2
+Description = 
+```
+
+For the description you can put what ever you want **eg. My simple minecraft server**
+
+```bash
+[MyServer]
+LaunchCommand = 
+Version = 1.12.2
+Description = My simple minecraft server
+```
+
+For the LaunchCommnd this is where the command to run your server will go if your server is in a subfolder add **FOLDER/####.jar** to the run command let's use the fabric jar for this
+
+
+```bash
+[MyServer]
+LaunchCommand = fajava -Xmx2G -jar fabric-server-mc.1.20.4-loader.0.15.7-launcher.1.0.0.jar nogui
+Version = 1.12.2
+Description = My simple minecraft server
+```
+
+```bash
+[MyServer]
+LaunchCommand = java -Xmx2G -jar FOLDER/fabric-server-mc.1.20.4-loader.0.15.7-launcher.1.0.0.jar nogui
+Version = 1.12.2
+Description = My simple minecraft server
+```
 
 ## Error Codes
 Encountering an error? Here's what each error code means:
