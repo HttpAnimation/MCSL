@@ -14,38 +14,38 @@ To install MCSL, follow these steps:
 1. Open a terminal.
 2. Make a new dir.
 
-    ```bash
-    mkdir ~/MCSL
-    ```
+```bash
+mkdir ~/MCSL
+```
 3. Enter the dir.
 
-    ```bash
-    cd ~/MCSL
-    ```
+```bash
+cd ~/MCSL
+```
 
 4. Download the installer script.
 
-    ```bash
-    curl -O -L https://github.com/HttpAnimation/MCSL/raw/main/install.bash
-    ```
+```bash
+curl -O -L https://github.com/HttpAnimation/MCSL/raw/main/install.bash
+```
 
 5. Allow the script to execute commands.
 
-    ```bash
-    chmod +x install.bash
-    ```
+```bash
+chmod +x install.bash
+```
 
 6. Run the installer.
 
-    ```bash
-    ./install.bash
-    ```
+```bash
+./install.bash
+```
 
 7. Remove the installer.
 
-    ```bash
-    rm install.bash
-    ```
+```bash
+rm install.bash
+```
 
 ## Configuration
 The config file called **config.conf** open up the file with a text edit for this guide let's use nano.
@@ -111,13 +111,13 @@ Description = My simple minecraft server
 Encountering an error? Here's what each error code means:
 
 1. **Error code 1**:
-    - Meaning: The server specified in your configuration file was not found.
-    
+- Meaning: The server specified in your configuration file was not found.
+
 2. **Error code 2**:
-    - Meaning: No launch command was found for your server.
-    
+- Meaning: No launch command was found for your server.
+
 3. **Error code 3**:
-    - Meaning: Your configuration file was not found.
+- Meaning: Your configuration file was not found.
 
 Refer to these error codes to troubleshoot and resolve any issues you encounter.
 
