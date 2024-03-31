@@ -31,3 +31,7 @@ echo "Done moving"
 
 echo "Done :3"
 echo "Make sure to edit your config.conf file with your new one."
+
+
+# Fabric
+mv Fabric Fabric-1.20.4
