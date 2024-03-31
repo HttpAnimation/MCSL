@@ -134,7 +134,7 @@ curl -O -L https://raw.githubusercontent.com/HttpAnimation/MCSL/main/installers/
 
 ### Fabric 1.20.4
 ```bash
-curl -O -L https://raw.githubusercontent.com/HttpAnimation/MCSL/main/installers/fabric/1.20.4/1.20.4.sh && chmod +x 1.20.4.sh && ./1.20.4.sh && rm 1.20.4.sh
+curl -O -L https://raw.githubusercontent.com/HttpAnimation/MCSL/main/installers/fabric/1.20.4.sh && chmod +x 1.20.4.sh && ./1.20.4.sh && rm 1.20.4.sh
 ```
 
 ## Credits
