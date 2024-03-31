@@ -2,7 +2,7 @@
 
 # Variables
 minecraft_version="1.20.4"
-download_url="https://piston-data.mojang.com/v1/objects/8dd1a28015f51b1803213892b50b7b4fc76e594d/server.jar"
+download_url="curl -OJ https://meta.fabricmc.net/v2/versions/loader/1.20.4/0.15.7/1.0.0/server/jar"
 config_url="https://raw.githubusercontent.com/HttpAnimation/MCSL/main/installers/base/config.conf"
 downloaded_file="baseServer${minecraft_version}.jar"
 config_file="config.conf"
