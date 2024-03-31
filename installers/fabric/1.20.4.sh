@@ -6,7 +6,7 @@ download_url="curl -OJ https://meta.fabricmc.net/v2/versions/loader/1.20.4/0.15.
 config_url="https://raw.githubusercontent.com/HttpAnimation/MCSL/main/installers/fabric/1.20.4/config.conf"
 downloaded_file="baseServer${minecraft_version}.jar"
 config_file="config.conf"
-target_directory="Base${minecraft_version}"
+target_directory="Fabric"  # Updated directory name
 
 # Download Minecraft server
 echo "Downloading Minecraft ${minecraft_version}..."
