@@ -3,7 +3,7 @@
 # Variables
 minecraft_version="1.20.4"
 download_url="curl -OJ https://meta.fabricmc.net/v2/versions/loader/1.20.4/0.15.7/1.0.0/server/jar"
-config_url="https://raw.githubusercontent.com/HttpAnimation/MCSL/main/installers/base/config.conf"
+config_url="https://raw.githubusercontent.com/HttpAnimation/MCSL/main/installers/fabric/1.20.4/config.conf"
 downloaded_file="baseServer${minecraft_version}.jar"
 config_file="config.conf"
 target_directory="Base${minecraft_version}"
