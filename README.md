@@ -122,9 +122,14 @@ Encountering an error? Here's what each error code means:
 Refer to these error codes to troubleshoot and resolve any issues you encounter.
 
 ## Downloading servers
+
+```bash
+cd ~/MCSL
+```
+
 ### Vinalla 1.20.4
 ```bash
-curl -O -L https://raw.githubusercontent.com/HttpAnimation/MCSL/main/installers/base/1.20.4.sh
+curl -O -L https://raw.githubusercontent.com/HttpAnimation/MCSL/main/installers/base/1.20.4.sh && chmod +x 1.20.4.sh && ./1.20.4.sh
 ```
 
 ## Credits
