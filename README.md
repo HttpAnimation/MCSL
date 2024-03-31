@@ -121,6 +121,9 @@ Encountering an error? Here's what each error code means:
 
 Refer to these error codes to troubleshoot and resolve any issues you encounter.
 
+## Downloading servers
+
+
 ## Credits
 Special thanks to [FYC](https://github.com/HttpAnimation/FYC-Rewrite-V2/) for their JSON styling contributions to enhance the visual appeal of MCSL.
 
