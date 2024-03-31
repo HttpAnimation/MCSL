@@ -10,4 +10,4 @@ mkdir $NewFolder
 mv fabric-server-mc.1.20.4-loader.0.15.7-launcher.1.0.0.jar $NewFolder
 mv $ConfFile $NewFolder
 mv $NewFolder ../../
-rm -rf Downloading
+rm -rf Downloading 
