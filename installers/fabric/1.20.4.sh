@@ -10,7 +10,7 @@ target_directory="Fabric"  # Updated directory name
 
 # Download Minecraft server
 echo "Downloading Minecraft ${minecraft_version}..."
-curl -o "$downloaded_file" "$download_url"
+curl -OJ "$downloaded_file" "$download_url"
 echo "Done downloading"
 
 # Rename the downloaded server
