@@ -125,3 +125,5 @@ Refer to these error codes to troubleshoot and resolve any issues you encounter.
 Special thanks to [FYC](https://github.com/HttpAnimation/FYC-Rewrite-V2/) for their JSON styling contributions to enhance the visual appeal of MCSL.
 
 Special thanks to [Downloader](https://github.com/HttpAnimation/Downloader) for the downlaoder scripts.
+
+Special thank to [Mogang](https://en.wikipedia.org/wiki/Mojang_Studios) for making Minecraft.
