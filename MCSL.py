@@ -27,7 +27,7 @@ def index():
 def launch_server():
     launch_command = request.form['server']
     if launch_command:
-        process = subprocess.Popen(launch_command.split(), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        process = subprocess.Popen(launch_command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         stdout, stderr = process.communicate()
         output = stdout.decode() + '\n' + stderr.decode()
         return output
