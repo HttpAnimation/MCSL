@@ -2,6 +2,12 @@ import configparser
 import subprocess
 import os
 
+# Get the directory of the script
+script_directory = os.path.dirname(os.path.abspath(__file__))
+
+# Change the working directory to the script directory
+os.chdir(script_directory)
+
 # Read config file
 config = configparser.ConfigParser()
 config.read('config.conf')
@@ -20,14 +26,6 @@ if selected_server not in config.sections():
 
 # Get launch command for selected server
 launch_command = config[selected_server]['LaunchCommand']
-
-# Extract directory from launch command
-command_parts = launch_command.split()
-server_directory = os.path.dirname(command_parts[2])  # Assuming jar file path is third argument
-
-# Change directory if specified
-if server_directory:
-    os.chdir(server_directory)
 
 # Execute launch command
 subprocess.run(launch_command, shell=True)
