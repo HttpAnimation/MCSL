@@ -74,7 +74,7 @@
         const form = document.getElementById('launchForm');
         const serverTitle = document.getElementById('serverTitle');
         const terminal = document.getElementById('terminal');
-
+    
         form.addEventListener('submit', async function(event) {
             event.preventDefault();
             const formData = new FormData(form);
@@ -91,5 +91,5 @@
             serverTitle.textContent = formData.get('server').split(' ')[0];
         });
     </script>
-</body>
+    </body>
 </html>
