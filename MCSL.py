@@ -29,5 +29,5 @@ server_directory = os.path.dirname(command_parts[2])  # Assuming jar file path i
 if server_directory:
     os.chdir(server_directory)
 
-# Execute launch command with the correct working directory
-subprocess.run(launch_command, shell=True, cwd=server_directory)
+# Execute launch command
+subprocess.run(launch_command, shell=True)
