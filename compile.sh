@@ -1,2 +1,2 @@
-gcc runner.c -o runner
+gcc -o runner runner.c
 chmod +x MCSL
