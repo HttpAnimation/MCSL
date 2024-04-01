@@ -16,11 +16,12 @@ def read_config_file(filename):
             elif '=' in line:
                 key, value = line.split('=', 1)
                 server_data[key.strip()] = value.strip()
-    return config
+        return config
 
 @app.route('/')
 def index():
     config = read_config_file('config.conf')
+    print(config)  # Print configuration for debugging
     return render_template('index.html', servers=config)
 
 @app.route('/launch', methods=['POST'])
