@@ -1,4 +1,5 @@
 import subprocess
+import os
 from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
@@ -16,26 +17,23 @@ def read_config_file(filename):
             elif '=' in line:
                 key, value = line.split('=', 1)
                 server_data[key.strip()] = value.strip()
-        return config
+    return config
 
 @app.route('/')
 def index():
     config = read_config_file('config.conf')
-    print(config)  # Print configuration for debugging
     return render_template('index.html', servers=config)
 
 @app.route('/launch', methods=['POST'])
 def launch_server():
-    form_data = request.form
-    print("Received form data:", form_data)  # Print received form data for debugging
-    launch_command = form_data.get('server')
+    config = read_config_file('config.conf')
+    server_name = request.form.get('server')
+    launch_command = config.get(server_name, {}).get('LaunchCommand')
     if launch_command:
-        process = subprocess.Popen(launch_command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        stdout, stderr = process.communicate()
-        output = stdout.decode() + '\n' + stderr.decode()
-        return jsonify({'output': output})
+        os.system(launch_command)
+        return jsonify({'output': 'Server launched successfully.'})
     else:
-        return jsonify({'error': 'No launch command specified.'})
+        return jsonify({'error': 'No launch command specified for the selected server.'})
 
 if __name__ == '__main__':
     app.run(debug=True)
