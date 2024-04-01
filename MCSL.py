@@ -1,5 +1,5 @@
 import subprocess
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
 
@@ -30,9 +30,9 @@ def launch_server():
         process = subprocess.Popen(launch_command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         stdout, stderr = process.communicate()
         output = stdout.decode() + '\n' + stderr.decode()
-        return output
+        return jsonify({'output': output})
     else:
-        return "Error: No launch command specified."
+        return jsonify({'error': 'No launch command specified.'})
 
 if __name__ == '__main__':
     app.run(debug=True)
