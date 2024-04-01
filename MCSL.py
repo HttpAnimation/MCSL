@@ -26,7 +26,9 @@ def index():
 
 @app.route('/launch', methods=['POST'])
 def launch_server():
-    launch_command = request.form['server']
+    form_data = request.form
+    print("Received form data:", form_data)  # Print received form data for debugging
+    launch_command = form_data.get('server')
     if launch_command:
         process = subprocess.Popen(launch_command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         stdout, stderr = process.communicate()
