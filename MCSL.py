@@ -1,5 +1,6 @@
 import configparser
 import subprocess
+import os
 
 # Read config file
 config = configparser.ConfigParser()
@@ -19,6 +20,13 @@ if selected_server not in config.sections():
 
 # Get launch command for selected server
 launch_command = config[selected_server]['LaunchCommand']
+
+# Extract directory from launch command
+server_directory = launch_command.split(' ')[-2]
+
+# Change directory if specified
+if server_directory != '.':
+    os.chdir(server_directory)
 
 # Execute launch command
 subprocess.run(launch_command, shell=True)
