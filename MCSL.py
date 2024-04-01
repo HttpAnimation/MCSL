@@ -22,7 +22,8 @@ if selected_server not in config.sections():
 launch_command = config[selected_server]['LaunchCommand']
 
 # Extract directory from launch command
-server_directory = os.path.dirname(launch_command.split(' ')[-2])
+command_parts = launch_command.split()
+server_directory = os.path.dirname(command_parts[2])  # Assuming jar file path is third argument
 
 # Change directory if specified
 if server_directory:
