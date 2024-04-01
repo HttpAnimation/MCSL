@@ -1,5 +1,5 @@
 import subprocess
-from flask import Flask, render_template_string, request
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -17,7 +17,7 @@ def read_config_file(filename):
 def index():
     config = read_config_file('config.conf')
     server_name = list(config.keys())[0]
-    return render_template_string('index.html', server_name=server_name, config=config)
+    return render_template('index.html', server_name=server_name, config=config)
 
 @app.route('/launch', methods=['POST'])
 def launch_server():
