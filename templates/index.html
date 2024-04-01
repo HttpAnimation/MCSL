@@ -6,27 +6,31 @@
     <title>Server Launcher</title>
 </head>
 <body>
-    <h1>{{ server_name }}</h1>
-    <p>Click the button below to launch the server.</p>
-    <p>Version: {{ config['Version'] }}</p>
-    <p>Description: {{ config['Description'] }}</p>
+    <h1>Server Launcher</h1>
     <form action="/launch" method="post">
-        <input type="hidden" name="launch_command" value="{{ config['LaunchCommand'] }}">
+        <label for="servers">Select a server:</label>
+        <select name="server" id="servers">
+            {% for server_name, server_data in servers.items() %}
+                <option value="{{ server_data['LaunchCommand'] }}">{{ server_name }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
         <button type="submit">Launch Server</button>
     </form>
     <hr>
-    <textarea id="output" rows="10" cols="50" readonly></textarea>
+    <p id="server_info"></p>
+
     <script>
-        const form = document.querySelector('form');
-        form.addEventListener('submit', async function(event) {
-            event.preventDefault();
-            const formData = new FormData(form);
-            const response = await fetch(form.action, {
-                method: form.method,
-                body: formData
-            });
-            const text = await response.text();
-            document.getElementById('output').value = text;
+        const select = document.getElementById('servers');
+        const info = document.getElementById('server_info');
+        
+        select.addEventListener('change', function() {
+            const selectedIndex = this.selectedIndex;
+            const selectedOption = this.options[selectedIndex];
+            const version = selectedOption.dataset.version;
+            const description = selectedOption.dataset.description;
+            
+            info.textContent = `Version: ${version}\nDescription: ${description}`;
         });
     </script>
 </body>
