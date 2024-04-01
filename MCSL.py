@@ -1,12 +1,7 @@
 import configparser
 import subprocess
 import os
-
-# Get the directory of the script
-script_directory = os.path.dirname(os.path.abspath(__file__))
-
-# Change the working directory to the script directory
-os.chdir(script_directory)
+import shutil
 
 # Read config file
 config = configparser.ConfigParser()
@@ -27,5 +22,19 @@ if selected_server not in config.sections():
 # Get launch command for selected server
 launch_command = config[selected_server]['LaunchCommand']
 
+# Extract directory from launch command
+server_directory = os.path.dirname(launch_command.split(' ')[-2])
+
+# Change directory if specified
+if server_directory:
+    os.chdir(server_directory)
+
 # Execute launch command
 subprocess.run(launch_command, shell=True)
+
+# Move files to the directory where the jar file is located
+for file in os.listdir('.'):
+    if os.path.isfile(file):
+        shutil.move(file, server_directory)
+
+print("Files moved successfully.")
