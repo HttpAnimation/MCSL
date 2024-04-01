@@ -26,10 +26,13 @@ def index():
 @app.route('/launch', methods=['POST'])
 def launch_server():
     launch_command = request.form['server']
-    process = subprocess.Popen(launch_command.split(), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    stdout, stderr = process.communicate()
-    output = stdout.decode() + '\n' + stderr.decode()
-    return output
+    if launch_command:
+        process = subprocess.Popen(launch_command.split(), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        stdout, stderr = process.communicate()
+        output = stdout.decode() + '\n' + stderr.decode()
+        return output
+    else:
+        return "Error: No launch command specified."
 
 if __name__ == '__main__':
     app.run(debug=True)
